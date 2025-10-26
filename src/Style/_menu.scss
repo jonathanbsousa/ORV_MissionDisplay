@@ -7,7 +7,6 @@
   transform: translateX(-50%);
   width: 90%;
   max-width: 800px;
-
   background: rgba(0, 0, 0, 0.7);
   border-radius: 1rem;
   padding: 1rem;
@@ -44,4 +43,24 @@
   margin-bottom: 0.5rem;
 }
 
+@media (max-width: 600px) {
+  .menu {
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+    padding: 0.5rem;
+  }
 
+  .menu ul {
+    gap: 0.5rem;
+  }
+
+  .menu img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .menu figure figcaption {
+    font-size: 0.8rem;
+  }
+}

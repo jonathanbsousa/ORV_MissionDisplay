@@ -90,3 +90,25 @@
   margin-bottom: 0.5rem;
   color: #6a1b9a;
 }
+
+@media (max-width: 768px) {
+  .conteiner {
+    padding: 2rem 1rem;
+  }
+
+  .missao-card {
+    font-size: 0.9rem;
+    padding: 1rem;
+    min-height: 300px;
+  }
+
+  .missao-card h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .missao-card {
+    min-height: 260px;
+  }
+}

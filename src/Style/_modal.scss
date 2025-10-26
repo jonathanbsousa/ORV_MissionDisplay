@@ -60,3 +60,25 @@ dialog.modal {
     width: 100px;
   }
 }
+
+@media (max-width: 768px) {
+  dialog.modal {
+    width: 80%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  dialog.modal {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .modal-botoes {
+    flex-direction: column;
+  }
+
+  .caixaTexto {
+    width: 100%;
+  }
+}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import sucesso from "../assets/win.png";
 import erro from "../assets/raios.png";
 
@@ -6,6 +6,12 @@ export function MissaoModal({ missao, onClose, onConcluir }) {
   const [resposta, setResposta] = useState("");
   const [resultado, setResultado] = useState(null);
   const [status, setStatus] = useState(null);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // foco inicial no campo de resposta
+    inputRef.current?.focus();
+  }, []);
 
   const verificarResposta = () => {
     if (!resposta.trim()) {
@@ -19,11 +25,7 @@ export function MissaoModal({ missao, onClose, onConcluir }) {
     ) {
       setResultado("Resposta correta! Parabéns!");
       setStatus("sucesso");
-
-      // ✅ chama a função de concluir após 1s (tempo para mostrar feedback)
-      setTimeout(() => {
-        onConcluir(missao.id);
-      }, 1000);
+      setTimeout(() => onConcluir(missao.id), 1000);
     } else {
       setResultado("Resposta incorreta. Tente novamente!");
       setStatus("erro");
@@ -31,16 +33,20 @@ export function MissaoModal({ missao, onClose, onConcluir }) {
   };
 
   return (
-    <dialog open className="modal">
-      <h2 className="titulo" id="titulo-missao">
-        {missao.titulo}
-      </h2>
+    <dialog 
+      open 
+      className="modal"
+      role="dialog"
+      aria-labelledby="titulo-missao"
+      aria-describedby="descricao-missao"
+      aria-modal="true"
+    >
+      <h2 id="titulo-missao">{missao.titulo}</h2>
       <p id="descricao-missao">{missao.descricao}</p>
 
-      <label htmlFor="resposta" className="sr-only">
-        Digite sua resposta
-      </label>
+      <label htmlFor="resposta">Digite sua resposta</label>
       <input
+        ref={inputRef}
         className="caixaTexto"
         id="resposta"
         type="text"
@@ -56,7 +62,11 @@ export function MissaoModal({ missao, onClose, onConcluir }) {
       </div>
 
       {resultado && (
-        <div className="resultado">
+        <div 
+          className="resultado" 
+          role="status" 
+          aria-live="polite"
+        >
           <p>{resultado}</p>
           {status === "sucesso" && (
             <img
@@ -68,7 +78,7 @@ export function MissaoModal({ missao, onClose, onConcluir }) {
           {status === "erro" && (
             <img
               src={erro}
-              alt="Erro na resposta da missão"
+              alt="Resposta incorreta"
               width="100"
             />
           )}

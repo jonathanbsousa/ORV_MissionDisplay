@@ -17,6 +17,7 @@ $borda: 1px solid $fundo;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 
 body {
@@ -58,4 +59,30 @@ button[disabled],
   cursor: not-allowed;
   opacity: 0.8;
   background-color: #f3f1f2;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: inherit; // mantém a cor do texto do elemento pai
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+html {
+  font-size: 100%; // 16px padrão
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 93.75%; // ~15px
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 87.5%; // ~14px
+  }
 }
