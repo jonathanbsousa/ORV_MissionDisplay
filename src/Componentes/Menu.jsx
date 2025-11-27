@@ -36,7 +36,7 @@ export function Menu() {
         </li>
 
         <li>
-          <Link to="" aria-label="Abrir câmera">
+          <Link to="camera" aria-label="Abrir câmera">
             <figure>
               <img src={camera} alt="Ícone de câmera" />
               <figcaption>Câmera</figcaption>
