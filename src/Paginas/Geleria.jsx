@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import { Camera } from "../Componentes/Camera";
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
@@ -24,11 +24,11 @@ export function Galeria() {
   };
 
   return (
-    <main>
+    <main className="galleryContainer">
       <Camera onFotoTirada={adicionarFotos} />
       <button onClick={limparGaleria}>Limpar Galeria</button>
 
-      <section>
+      <section className="gallerySection">
         <h2>Galeria de Fotos</h2>
         {fotos.leght === 0 && <p></p>}
         <Box sx={{ width: 500, height: 450, overflowY: "scroll" }}>

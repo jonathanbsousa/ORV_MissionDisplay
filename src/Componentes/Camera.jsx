@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import bg from '../assets/window_bg.png'
 
 export function Camera({ onFotoTirada }) {
   const videoRef = useRef(null);
@@ -58,6 +59,7 @@ export function Camera({ onFotoTirada }) {
         ) : (
           <img src={foto} alt="foto tirada" />
         )}
+        <img src={bg} className="camera_frame" alt="frame" />
       </div>
 
       <div>

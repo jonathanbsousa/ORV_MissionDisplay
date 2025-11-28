@@ -18,7 +18,7 @@ export function Menu() {
         </li>
 
         <li>
-          <Link to="" aria-label="Abrir inventário">
+          <Link to="inventario" aria-label="Abrir inventário">
             <figure>
               <img src={bau} alt="Ícone de inventário" />
               <figcaption>Inventário</figcaption>

@@ -1,0 +1,66 @@
+@use './variaveis' as *;
+
+.camera_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px; // Limita a largura em telas grandes
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 2px solid $destaque-rosa;
+    padding-bottom: 0.5rem;
+  }
+
+  .camera_container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1 / 1.25;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  video,
+  img:not(.camera_frame) {
+    position: absolute;
+    width: 78%;
+    height: 74%;
+    top: 13%;
+    left: 11%;
+    object-fit: cover;
+    border-radius: 6px;
+    z-index: 1;       // 🔥 GARANTE que fica por cima
+  }
+
+  .camera_frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 2;       // 🔥 Moldura sempre por cima
+  }
+}
+
+  div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    button {
+      width: 100%;
+      max-width: 300px; // Botão não fica gigante em desktop
+      margin-top: 1.5rem;
+      font-size: 1.1em; // Usa em para escalar com base no botão pai
+    }
+  }
+}
